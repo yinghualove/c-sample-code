@@ -88,3 +88,16 @@ LNode *GetElem(LinkList L,int i)
     }
     return p;                       //返回第i个结点的指针，若i大小表长，则返回NULL
 }
+
+//功能：按值查找
+//结果：返回输入值的结点指针
+LNode *LocateElem(LinkList L,ElemType e)
+{
+    LNode *p=L->next;
+    while (p!=NULL&&p->data!=e)
+    {
+        p=p->next;
+    }
+    return p;
+    
+}

@@ -12,6 +12,7 @@ LinkList List_HeadInsert(LinkList L);   //逆向建立单链表
 LinkList List_TailInsert(LinkList L);   //正向建立单链表
 int DestroyList(LinkList L);
 LNode *GetElem(LinkList L,int i);
+LNode *LocateElem(LinkList L,ElemType e);
 void print(LinkList L);
 
 
