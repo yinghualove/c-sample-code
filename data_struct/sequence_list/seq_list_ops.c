@@ -31,6 +31,7 @@ Status DestroyList(SeqList *L)
 {
     while (!L->elem)
         free(L->elem);
+    L->elem = NULL;
     L->length = 0;
     printf("destory a seqlist finish\n");
     return OK;
