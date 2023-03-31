@@ -94,10 +94,26 @@ LNode *GetElem(LinkList L,int i)
 LNode *LocateElem(LinkList L,ElemType e)
 {
     LNode *p=L->next;
+    int sn=0;
+    p->sn = sn;
     while (p!=NULL&&p->data!=e)
     {
         p=p->next;
+        ++sn;
+        p->sn = sn;
     }
     return p;
-    
+}
+
+//功能：插入新结点
+//结果：在第i个位置插入新的结点
+LNode *ListInsert(LinkList L,int i,ElemType e)
+{
+    LNode *p,*s;
+    s->data = e;
+    p = GetElem(L,i-1);            //查找插入位置的前驱结点
+    s->next=p->next;               //新结点s指针域指向p的后继结点
+    p->next=s;                     //p的指针域指向新插入的结点s
+
+    return p;
 }

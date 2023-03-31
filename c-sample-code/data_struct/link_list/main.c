@@ -17,9 +17,11 @@ int main(int argc,char **argv)
 
     printf("输入结点值：\n");
     scanf("%d",&value);
-    ret = LocateElem(L,value);
-    printf("ret->id=%d\n",ret);
+    ret = LocateElem(S,value);
+    printf("ret->sn=%d\n",ret->sn);
 
+    ret = ListInsert(S,sn,value);
+    print(ret);
     DestroyList(S);
     // S = List_TailInsert(L);   //逆向建立单链表
     // print(S);
