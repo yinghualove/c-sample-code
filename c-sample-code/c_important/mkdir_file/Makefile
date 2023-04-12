@@ -1,10 +1,10 @@
 CC = gcc
-TARGET = linklist
-CFLAGS = -std=gnu11 -c -g
-OBJS = main.o link_list.o 
+TARGET = mkdir_file
+CFLAGS = -std=gnu11  -c
+OBJS = mkdir_file.o 
 
 $(TARGET):$(OBJS)
-	$(CC) $^ -o $(TARGET)
+	$(CC) $^ -lm -o $(TARGET)
 %.o:%.c
 	$(CC) $^ $(CFLAGS) -o $@
 

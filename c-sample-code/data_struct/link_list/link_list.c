@@ -68,7 +68,7 @@ int DestroyList(LinkList L)
         free(L);
     L=NULL;
     printf("destory a linklist finish\n");
-    return OK;
+    return 0;
 }
 
 //功能：按序号查找结点值
