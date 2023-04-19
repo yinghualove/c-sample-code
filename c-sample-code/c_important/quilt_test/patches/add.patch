@@ -1,0 +1,16 @@
+Index: b/quilt_test.c
+===================================================================
+--- a/quilt_test.c
++++ b/quilt_test.c
+@@ -1,7 +1,8 @@
+ #include <stdio.h>
+ 
+ int main(int argc,char **argv){
+-    printf("hello\n");
++       	printf("hello\n");
++	printf("add\n");
+ 
+     return 0;
+-}
+\ No newline at end of file
++}
