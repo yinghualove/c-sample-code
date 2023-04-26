@@ -105,9 +105,10 @@ LNode *LocateElem(LinkList L,ElemType e)
     return p;
 }
 
-//功能：插入新结点
-//结果：在第i个位置插入新的结点（前插）
-LNode *List_FrontInsert(LinkList L,int i,ElemType e)
+
+//结果：在第i个位置插入新的结点（后插）
+//时间复杂度：O(n)
+LNode *List_BehindInsert(LinkList L,int i,ElemType e)
 {
     LNode *p,*s;
     s=(LNode*)malloc(sizeof(LNode));  //创建新结点
@@ -119,7 +120,16 @@ LNode *List_FrontInsert(LinkList L,int i,ElemType e)
     return p;
 }
 
-LNode *ListInsert(LinkList L,int i,ElemType e)
-{
 
+
+//结果：删除第i个位置的结点
+LNode *List_DeleteNode(LinkList L,int i)
+{
+    LNode *p,*q;
+    p = GetElem(L,i-1);              //查找删除位置的前驱结点
+    q = p->next;                    //令q指向被删除将诶殿
+    p->next=q->next;                //将*q结点从链中断开
+    free(q);                        //释放结点的存储空间
+
+    return p;
 }

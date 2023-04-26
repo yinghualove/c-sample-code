@@ -2,6 +2,10 @@
     "files.associations": {
         "module.h": "c",
         "init.h": "c",
-        "compiler.h": "c"
+        "compiler.h": "c",
+        "sched.h": "c",
+        "types.h": "c",
+        "kernel.h": "c",
+        "list.h": "c"
     }
 }
