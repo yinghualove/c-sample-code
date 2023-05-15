@@ -6,7 +6,6 @@
         "sched.h": "c",
         "types.h": "c",
         "kernel.h": "c",
-        "list.h": "c",
-        "linkage.h": "c"
+        "list.h": "c"
     }
 }
