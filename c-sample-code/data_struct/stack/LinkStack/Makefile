@@ -1,7 +1,7 @@
 CC = gcc
-TARGET = seq_stack
+TARGET = link_stack
 CFLAGS = -std=gnu11 -c -g
-OBJS = main.o seq_stack.o 
+OBJS = main.o link_stack.o 
 
 $(TARGET):$(OBJS)
 	$(CC) $^ -o $(TARGET)

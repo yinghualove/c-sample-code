@@ -12,10 +12,15 @@ typedef int Status;
 typedef int ElemType;
 
 typedef struct SqStack{
-    ElemType *data;       //数据域
+    ElemType data[MAXSIZE];       //数据域
     int top;              //栈顶指针
     int length;           //栈长度
     int stacksize;         //栈总大小
 }SeqStack;
+
+Status InitStack(SeqStack *S);
+Status Push(SeqStack *S,ElemType e);
+Status Pop(SeqStack *S,ElemType *e);
+
 
 #endif /* _SEQ_STACK_H */

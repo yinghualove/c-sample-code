@@ -1,10 +1,14 @@
+/*
+    *栈的顺序储存操作
+*/
+
 #include "seq_stack.h"
 
 /*create a seqstack*/
 /*InitStack(S)*/
 Status InitStack(SeqStack *S)
 {
-    S->data = (ElemType *)malloc(sizeof(ElemType) * MAXSIZE); // 分配内存
+    //S->data = (ElemType *)malloc(sizeof(ElemType) * MAXSIZE); // 分配内存
     if (!S->data)                                            //异常处理，分配成功时S为空栈，分配失败时，返回ERROR
         return ERROR;
     S->length = 0;                                                  //初始化栈长度
@@ -20,6 +24,7 @@ Status InitStack(SeqStack *S)
 */
 Status Push(SeqStack *S,ElemType e)
 {
+    S->top = 0;
     if(S->top == MAXSIZE -1)   //栈满
     {
         return ERROR;
@@ -37,5 +42,9 @@ Status Push(SeqStack *S,ElemType e)
 */
 Status Pop(SeqStack *S,ElemType *e)
 {
-
+    if(S->top == -1)
+        return ERROR;
+    *e = S->data[S->top];       //将要删除的栈顶元素赋值给e
+    S->top--;                   //栈顶指针-1
+    return OK;
 }
