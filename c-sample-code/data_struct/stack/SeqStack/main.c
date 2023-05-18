@@ -2,17 +2,30 @@
 
 int main(int argc,char **argv)
 {
-    SeqStack S;
+    SeqStack *S;
     ElemType e;
     ElemType x;
-    //InitStack(S);
+    InitStack(S);
     printf("输入入栈的数：\n");
-    scanf("%d",&e);       
-    Push(&S,e);
-    printf("入栈的数为：%d\n",S.data[S.top]);
+    scanf("%d",&e);
+    while(e != 9999)
+    {       
+        Push(S,e);
+        printf("%d入栈\n",S->data[S->top]);
+        scanf("%d",&e);
+    }
+    printf("出栈顺序：\n");
+    Ergodic_Elem(S);
 
-    Pop(&S,&x);
-    printf("出栈数为%d\n",x);
+    while(S->top != -1)
+    {
+        Pop(S,&x);
+        printf("%d出栈\n",x);
+    }
+
+    EmptyStack(S);
+
+    DestoryStack(S);
 
     return 0;
 }

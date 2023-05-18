@@ -21,6 +21,11 @@ typedef struct SqStack{
 Status InitStack(SeqStack *S);
 Status Push(SeqStack *S,ElemType e);
 Status Pop(SeqStack *S,ElemType *e);
+void Ergodic_Elem(SeqStack *S);
+Status EmptyStack(SeqStack *S);
+Status DestoryStack(SeqStack *S);
+
+
 
 
 #endif /* _SEQ_STACK_H */

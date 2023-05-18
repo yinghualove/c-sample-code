@@ -16,7 +16,11 @@ int main(int argc,char **argv)
         scanf("%d",&e);
     }
     printf("count=%d\n",S.count);
+    //Ergodic_Elem(&S);
+    //printf("count=%d\n",S.count);
+
 
     Pop(&S,&x);
     printf("出栈数：%d\n",x);
+    
 }

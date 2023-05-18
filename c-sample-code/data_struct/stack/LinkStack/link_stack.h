@@ -26,5 +26,7 @@ typedef struct LinkStack
 
 Status Push(LinkStack *S, ElemType e);
 Status Pop(LinkStack *S,ElemType *e);
+void Ergodic_Elem(LinkStack *S);
+
 
 #endif /* _LINK_STACK_H */

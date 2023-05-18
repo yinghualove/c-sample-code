@@ -11,6 +11,19 @@ Status Push(LinkStack *S, ElemType e)
     return OK;
 }
 
+//遍历栈元素
+void Ergodic_Elem(LinkStack *S)
+{
+    LinkStack *p;
+    p = S;
+    while(p->count != 0)
+    {
+        printf("入栈数：%d\n",p->top->data);
+        p->top = p->top->next;
+        p->count--;
+    }
+}
+
 /*
     *出栈
     *若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK，负责返回ERROR
@@ -19,19 +32,16 @@ Status Push(LinkStack *S, ElemType e)
 Status Pop(LinkStack *S,ElemType *e)
 {
     LinkStackPtr p;
-    int x;
     if(!S->top->data)
         return ERROR;
-    printf("aaaaaaaaaaaa\n");
-    printf("data=%d\n",S->top->data);
-    x=S->top->data;
-    printf("x=%d\n",x);
-    *e = x;
-    printf("bbbbbbbbbbbbbbbb\n");
-    p=S->top;
-    printf("ccccccccccccccc\n");
-    S->top=S->top->next;
-    free(p);
-    S->count--;
+    *e=S->top->data;
+    p=S->top;                   //将栈顶结点赋值给p
+ //   while(S->top->data)
+   // {
+//        p=S->top;                   //将栈顶结点赋值给p
+        S->top=S->top->next;        //使得栈顶指针下移一位，指向后一结点
+        free(p);                    //释放结点p
+        S->count--;
+   // }
     return OK;
 }
