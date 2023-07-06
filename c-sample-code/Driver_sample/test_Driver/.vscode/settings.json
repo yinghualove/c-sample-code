@@ -34,5 +34,16 @@
     "**/.vscode/**"
   ],
   "C_Cpp_Runner.useAddressSanitizer": false,
-  "C_Cpp_Runner.showCompilationTime": false
+  "C_Cpp_Runner.showCompilationTime": false,
+  "files.associations": {
+    "module.h": "c",
+    "kernel.h": "c",
+    "linkage.h": "c",
+    "sched.h": "c",
+    "div64.h": "c",
+    "seccomp.h": "c",
+    "ia32_unistd.h": "c",
+    "init.h": "c",
+    "sysinfo.h": "c"
+  }
 }

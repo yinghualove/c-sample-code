@@ -1,5 +1,5 @@
 (CC) = gcc
-TARGET = comport
+
 comport: comport.c comportopen.o comportinit.o comportswap.o comportswap.o
 	$(CC) comport.c comportopen.o comportinit.o comportswap.o -o comport -Werror -Wall
 
@@ -14,4 +14,4 @@ comportswap.o: comportswap.h
 
 
 clean:
-	rm -rf *.o $(TARGET)
+	rm *.o comport
