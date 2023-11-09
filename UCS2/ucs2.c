@@ -1,23 +1,53 @@
-#include <stdio.h>
-#include <stdint.h>
 #include <locale.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 
-void ucs2_decode(const uint8_t* encoded, size_t encoded_length) {
-    setlocale(LC_CTYPE, ""); // 设置本地化环境
+// 将十六进制字符转换为对应的数值
+int hex_char_to_int(char c) {
+  if (c >= '0' && c <= '9') {
+    return c - '0';
+  } else if (c >= 'A' && c <= 'F') {
+    return c - 'A' + 10;
+  } else if (c >= 'a' && c <= 'f') {
+    return c - 'a' + 10;
+  } else {
+    // 错误的输入
+    return -1;
+  }
+}
 
-    for (size_t i = 0; i < encoded_length; i += 2) {
-        uint16_t c = (encoded[i] << 8) | encoded[i+1]; // 合并两个字节为一个UCS2字符
-        printf("%lc", c); // 打印UCS2字符
-    }
-
-    printf("\n");
+// 将UCS2编码的字符解码为Unicode码点
+uint16_t ucs2_to_unicode(uint16_t *ucs2) {
+  uint16_t high_byte = (uint16_t)(ucs2[0]) << 8;
+  uint16_t low_byte = (uint16_t)(ucs2[1]);
+  return high_byte | low_byte;
 }
 
 int main() {
-    const uint8_t encoded[] = {0x80, 0x66, 0x6E, 0x90, 0x1A, 0x00, 0x55, 0x00, 0x53, 0x00, 0x49, 0x00, 0x4D, 0x53, 0x61, 0x00, 0x20, 0x00, 0x56, 0x00, 0x32, 0x00, 0x2E, 0x00, 0x30, 0x00, 0x41, 0x00, 0x27};
-    size_t encoded_length = sizeof(encoded);
+  setlocale(LC_CTYPE, "");
+  char input_string[100]; // 假设输入的字符串不超过10个字符
+  printf("请输入十六进制字符串：\n");
+  scanf("%s", input_string);
 
-    ucs2_decode(encoded, encoded_length);
+  uint16_t code[2];
+  memset(code,0,sizeof(code));
+  int i = 0;
+  for (i = 0; i < strlen(input_string); i++){
+    // printf("input_string[%d]=%c\n",i,input_string[i]);
+  }
+  for (i = 0; i < strlen(input_string); i+=4) {   
+    code[0] = (hex_char_to_int(input_string[i]) << 4) |
+              hex_char_to_int(input_string[i + 1]);
+    code[1] = (hex_char_to_int(input_string[i + 2]) << 4) | hex_char_to_int(input_string[i + 3]);
+    uint16_t unicode_code = ucs2_to_unicode((code));
 
-    return 0;
+    // printf("Unicode Code Point: U+%04X\n", unicode_code);
+
+    printf("%lc", unicode_code);
+    //printf("The corresponding character is: %lc", unicode_code);
+
+  }
+  printf("\n");
+  return 0;
 }
