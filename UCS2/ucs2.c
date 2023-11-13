@@ -19,12 +19,12 @@ int hex_char_to_int(char c) {
 
 // 将UCS2编码的字符解码为Unicode码点
 uint16_t ucs2_to_unicode(uint16_t *ucs2) {
-  uint16_t high_byte = (uint16_t)(ucs2[0]) << 8;
-  uint16_t low_byte = (uint16_t)(ucs2[1]);
+  uint16_t high_byte = ucs2[0] << 8;
+  uint16_t low_byte = ucs2[1];
   return high_byte | low_byte;
 }
 
-int main() {
+int main(int argc,char **argv) {
   setlocale(LC_CTYPE, "");
   char input_string[100]; // 假设输入的字符串不超过10个字符
   printf("请输入十六进制字符串：\n");
@@ -33,9 +33,9 @@ int main() {
   uint16_t code[2];
   memset(code,0,sizeof(code));
   int i = 0;
-  for (i = 0; i < strlen(input_string); i++){
+  //for (i = 0; i < strlen(input_string); i++){
     // printf("input_string[%d]=%c\n",i,input_string[i]);
-  }
+//   }
   for (i = 0; i < strlen(input_string); i+=4) {   
     code[0] = (hex_char_to_int(input_string[i]) << 4) |
               hex_char_to_int(input_string[i + 1]);
