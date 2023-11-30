@@ -121,8 +121,8 @@ void read_text(const char* file_name)
 
 }
 
-//主函数测试
-int main() {
-	read_text("test.txt");
-	return 0;
-}
+// //主函数测试
+// int main() {
+// 	read_text("test.txt");
+// 	return 0;
+// }
