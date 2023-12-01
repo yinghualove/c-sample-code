@@ -10,7 +10,7 @@ int main()
     memset(options,0,strlen(options));
 
     INFO_LOG("input your option:\n");
-    scanf("%s",&options);
+    scanf("%s",options);
 
     if(strncmp(options,"encoding",10) == 0)
         encoding();                          //执行编码
