@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "assert_coding.h"
 
 
 bool is_str_utf8(const char* str);
